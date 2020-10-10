@@ -184,4 +184,6 @@ function wjtiK(c) {
         }
     } catch (e) { }
 }
-// setInterval(function () { wjtiK(); }, 0xfa0);
+// setInterval(function () {
+//     wjtiK();
+// }, 0xfa0);
