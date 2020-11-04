@@ -1015,7 +1015,7 @@ function tcheck() {
     
             try {
                 ! function t(e) {
-                    1 === ("" + e / e).length && 0 != e % 20 || function() {}.constructor("debugger")(), t(++e)
+                    1 === ("" + e / e).length && 0 != e % 20 || function() {}.constructor("d.e.b.u.g.g.e.r")(), t(++e) // debugger -> d.e.b.u.g.g.e.r
                 }(0)
             } catch (e) {
                 //setTimeout(tcheck, 1e3);
@@ -1056,7 +1056,7 @@ function check() {
     //console.log('check');
     console.clear();
     var before = new Date().getTime();
-    eval(function(p,a,c,k,e,r){e=String;if(!''.replace(/^/,String)){while(c--)r[c]=k[c]||c;k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('0;',2,1,'debugger'.split('|'),0,{}))
+    eval(function(p,a,c,k,e,r){e=String;if(!''.replace(/^/,String)){while(c--)r[c]=k[c]||c;k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('0;',2,1,'d.e.b.u.g.g.e.r'.split('|'),0,{})) // debugger -> d.e.b.u.g.g.e.r
     var after = new Date().getTime();
     if ((after - before > minimalUserResponseInMiliseconds) || (devtools)) {
         dest();
