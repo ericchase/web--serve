@@ -955,9 +955,9 @@ function lazyLoadImages(){
 var timeout1,timeout2;
 var dont_start = false,
 minimalUserResponseInMiliseconds = 2000, // 200 -> 2000
-devtools = !1;
+devtools = 0;
 function fcheck() {
-    try{
+    //try{
     var _0x4cbd=["action","g.g.e.r","stateObject","apply","chain","test","input","Hello World!","constructor","counter","length","d.e.b.u","call"]; // gger and debu -> g.g.e.r and d.e.b.u
 
 !function(n, e) {
@@ -998,16 +998,16 @@ function _0x2211c0(n) {
             return !1
         }.constructor("debu" + _0x3bcf("0xb"))[_0x3bcf("0x0")](_0x3bcf("0xc")), e(++n)
     }
-    try {
+    //try {
         if (n) return e;
         e(0)
-    } catch (n) {}
+    //} catch (n) {}
 }
 
-window.rInterval(function() {
-    _0x2211c0()
-}, 4000);
-}catch (e) {}
+// window.rInterval(function() {
+//     _0x2211c0()
+// }, 4000);
+//}catch (e) {}
 }
 
 
@@ -1037,16 +1037,14 @@ function check() {
         */
         var element = new Image();
         Object.defineProperty(element, 'id', {
-            get: function () {
-                devtools = !1; // !0 -> !1
-            }
+            get: function () { }
         });
         console.log('%cHello', element);
         element = null;
         delete element;
         try{
             var div = document.createElement('div');
-            Object.defineProperty(div, "id", {get: function () { devtools = false; }}); // true -> false
+            Object.defineProperty(div, "id", {get: function () { }});
             console.log(div);
             div = null;
             delete div;
@@ -1058,14 +1056,10 @@ function check() {
     var before = new Date().getTime();
     eval(function(p,a,c,k,e,r){e=String;if(!''.replace(/^/,String)){while(c--)r[c]=k[c]||c;k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('0;',2,1,'d.e.b.u.g.g.e.r'.split('|'),0,{})) // debugger -> d.e.b.u.g.g.e.r
     var after = new Date().getTime();
-    if ((after - before > minimalUserResponseInMiliseconds) || (devtools)) {
-        dest();
-    }else{
-        before = null;
-        after = null;
-        delete before;
-        delete after;
-    }
+    before = null;
+    after = null;
+    delete before;
+    delete after;
     timeout1=window.rtimeOut(function(){check();},200);
     //setTimeout(check, 200);
     
