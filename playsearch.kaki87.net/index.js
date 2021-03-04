@@ -113,8 +113,6 @@ const searchInput = document.querySelector('.search__input')
 const searchButton = document.querySelector('.search__submit')
 
 searchButton.onclick = () => {
-  // Empty query won't work
-  if (!searchInput.value) return
   // Time search
   const startTime = Date.now()
   const outputMessage = document.querySelector('.output__message')
