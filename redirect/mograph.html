@@ -115,6 +115,7 @@
 
   elementReady('.activate')
     .then(ele => {
+      console.log(ele);
       ele.on("click", function () {
         console.log('clicked nav-open');
         $('.nav-open')[0].click();
