@@ -115,77 +115,76 @@
 
   elementReady('.activate')
     .then(ele => {
-      $(ele).on("click", function () {
+      ele.on("click", function () {
         console.log('clicked nav-open');
         $('.nav-open')[0].click();
         $('.nav').css("overflow", "visible");
       });
+
+      $('.home').on("click", function () {
+        console.log('clicked home');
+        $('.homelink')[0].click();
+        $('.nav-close')[0].click();
+        setTimeout(function () {
+          $('.nav').css("overflow", "hidden");
+        }, 2000);
+      });
+
+      $('.contact').on("click", function () {
+        console.log('clicked home');
+        $('.contact-link')[0].click();
+        $('.nav-close')[0].click();
+        setTimeout(function () {
+          $('.nav').css("overflow", "hidden");
+        }, 2000);
+      });
+
+      $('.gallery').on("click", function () {
+        console.log('clicked gallery');
+        $('.gallery-link')[0].click();
+        $('.nav-close')[0].click();
+        setTimeout(function () {
+          $('.nav').css("overflow", "hidden");
+        }, 2000);
+      });
+
+      $('.about').on("click", function () {
+        console.log('clicked about');
+        $('.about-link')[0].click();
+        $('.nav-close')[0].click();
+        setTimeout(function () {
+          $('.nav').css("overflow", "hidden");
+        }, 2000);
+      });
+
+      $('.close').on("click", function () {
+        console.log('clicked close');
+        $('.nav-close')[0].click();
+        setTimeout(function () {
+          $('.nav').css("overflow", "hidden");
+        }, 2000);
+      });
+
+      $('.link-block').click(function () {
+        if ($('.link-block').hasClass("w--current")) {
+          $(this).find('.headinglink').addClass('hovered')
+          $('.headinglink').not(this).removeClass('hovered')
+        }
+      });
+
+      $('.link-block').hover(function () {
+        $(this).find('.headinglink').toggleClass('hovered')
+      });
+
+      $('.lottiecontainer').mouseenter(function () {
+        $(this).find('.staticframe').addClass('hide');
+      });
+
+      $('.lottiecontainer').mouseleave(function () {
+        $(this).find('.staticframe').removeClass('hide');
+      });
     });
 
-  window.addEventListener("load", function () {
-    $('.home').on("click", function () {
-      console.log('clicked home');
-      $('.homelink')[0].click();
-      $('.nav-close')[0].click();
-      setTimeout(function () {
-        $('.nav').css("overflow", "hidden");
-      }, 2000);
-    });
-
-    $('.contact').on("click", function () {
-      console.log('clicked home');
-      $('.contact-link')[0].click();
-      $('.nav-close')[0].click();
-      setTimeout(function () {
-        $('.nav').css("overflow", "hidden");
-      }, 2000);
-    });
-
-    $('.gallery').on("click", function () {
-      console.log('clicked gallery');
-      $('.gallery-link')[0].click();
-      $('.nav-close')[0].click();
-      setTimeout(function () {
-        $('.nav').css("overflow", "hidden");
-      }, 2000);
-    });
-
-    $('.about').on("click", function () {
-      console.log('clicked about');
-      $('.about-link')[0].click();
-      $('.nav-close')[0].click();
-      setTimeout(function () {
-        $('.nav').css("overflow", "hidden");
-      }, 2000);
-    });
-
-    $('.close').on("click", function () {
-      console.log('clicked close');
-      $('.nav-close')[0].click();
-      setTimeout(function () {
-        $('.nav').css("overflow", "hidden");
-      }, 2000);
-    });
-
-    $('.link-block').click(function () {
-      if ($('.link-block').hasClass("w--current")) {
-        $(this).find('.headinglink').addClass('hovered')
-        $('.headinglink').not(this).removeClass('hovered')
-      }
-    });
-
-    $('.link-block').hover(function () {
-      $(this).find('.headinglink').toggleClass('hovered')
-    });
-
-    $('.lottiecontainer').mouseenter(function () {
-      $(this).find('.staticframe').addClass('hide');
-    });
-
-    $('.lottiecontainer').mouseleave(function () {
-      $(this).find('.staticframe').removeClass('hide');
-    });
-  });
 
   $(document).ready(function () {
     $('#logos-slider').owlCarousel({
