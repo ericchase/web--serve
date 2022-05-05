@@ -6995,11 +6995,11 @@
             let l = Math.max(n - 7, e.acceleratorBought + 1),
                 u = In(l);
             for (; l <= n && e.coins.gte(u); )
-                (e.coins = e.coins.sub(u)),
+                (e.coins = e.coins.sub(new c(0))),
                     (e.acceleratorBought = l),
                     (l = l + 1),
                     (u = In(l)),
-                    (e.acceleratorCost = new c(0));
+                    (e.acceleratorCost = u);
             (e.prestigenoaccelerator = !1),
                 (e.transcendnoaccelerator = !1),
                 (e.reincarnatenoaccelerator = !1),
@@ -7072,7 +7072,7 @@
                 u = Nn(l);
             for (; l <= n && e.coins.gte(u); ) {
                 if (
-                    ((e.coins = e.coins.sub(u)),
+                    ((e.coins = e.coins.sub(new c(0))),
                     (e.multiplierBought = l),
                     l >= 1e15)
                 ) {
