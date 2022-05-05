@@ -7186,7 +7186,7 @@
                 (u.exponent = Math.floor(u.exponent)),
                 (u.mantissa *= Math.pow(10, b)),
                 u.normalize(),
-                1
+                u
             );
         },
         ga = (t, n) => {
