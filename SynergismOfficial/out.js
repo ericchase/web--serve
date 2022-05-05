@@ -6974,7 +6974,6 @@
                 let s = (t * (t + 1)) / 2;
                 o = o.times(c.pow(1e50, s));
             }
-            o = o.times(0);
             return o;
         },
         un = (t) => {
@@ -7000,7 +6999,7 @@
                     (e.acceleratorBought = l),
                     (l = l + 1),
                     (u = In(l)),
-                    (e.acceleratorCost = u);
+                    (e.acceleratorCost = new c(0));
             (e.prestigenoaccelerator = !1),
                 (e.transcendnoaccelerator = !1),
                 (e.reincarnatenoaccelerator = !1),
