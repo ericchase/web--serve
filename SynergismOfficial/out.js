@@ -6999,7 +6999,7 @@
                     (e.acceleratorBought = l),
                     (l = l + 1),
                     (u = In(l)),
-                    (e.acceleratorCost = u);
+                    (e.acceleratorCost = new c(0));
             (e.prestigenoaccelerator = !1),
                 (e.transcendnoaccelerator = !1),
                 (e.reincarnatenoaccelerator = !1),
@@ -7079,7 +7079,7 @@
                     e.multiplierBought = 1e15;
                     return;
                 }
-                (l = l + 1), (u = Nn(l)), (e.multiplierCost = u);
+                (l = l + 1), (u = Nn(l)), (e.multiplierCost = new c(0));
             }
             (e.prestigenomultiplier = !1),
                 (e.transcendnomultiplier = !1),
