@@ -1,4 +1,4 @@
 # serve
-File server through github pages.
+Static file server via github pages.
 
 https://ericchase.github.io/serve/
