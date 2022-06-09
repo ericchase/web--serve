@@ -866,12 +866,12 @@ var wpcf7 = {"api":{"root":"https:\/\/euronaval.ro\/wp-json\/","namespace":"cont
 <script type='text/javascript' src='https://euronaval.ro/wp-content/themes/kontrast/js/scripts.js?ver=6.0' id='kontrast-scripts-js'></script>
 <script type='text/javascript' id='kontrast-scripts-js-after'>
 
-			jQuery(document).ready(function(){
-				var firstImage = jQuery("#flexslider-featured").find("img").filter(":first"),
-				   checkforloaded = setInterval(function() {
-					   var image = firstImage.get(0);
-					   if (image.complete || image.readyState == "complete" || image.readyState == 4) {
-						   clearInterval(checkforloaded);
+			//jQuery(document).ready(function(){
+			//	var firstImage = jQuery("#flexslider-featured").find("img").filter(":first"),
+			//	   checkforloaded = setInterval(function() {
+			//		   var image = firstImage.get(0);
+			//		   if (image.complete || image.readyState == "complete" || image.readyState == 4) {
+			//			   clearInterval(checkforloaded);
 						   jQuery("#flexslider-featured").flexslider({
 							   animation: "slide",
 								useCSS: false, // Fix iPad flickering issue
@@ -884,9 +884,9 @@ var wpcf7 = {"api":{"root":"https:\/\/euronaval.ro\/wp-json\/","namespace":"cont
 								slideshow: true,
 								slideshowSpeed: 7000,
 						   });
-					   }
-				   }, 20);
-			   });
+			//		   }
+			//	   }, 20);
+			// });
 			
 </script>
 <script type='text/javascript' src='https://euronaval.ro/wp-content/plugins/custom-facebook-feed/assets/js/cff-scripts.min.js?ver=4.1.4' id='cffscripts-js'></script>
