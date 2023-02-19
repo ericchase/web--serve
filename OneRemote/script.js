@@ -77,10 +77,10 @@ class ListItem {
     }
 
     hide() {
-        this.element.style.setProperty("visibility", "collapse");
+        this.element.style.setProperty("display", "none");
     }
     show() {
-        this.element.style.setProperty("visibility", "visible");
+        this.element.style.removeProperty("display");
     }
 }
 
