@@ -1,0 +1,31 @@
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.85em;
+}
+.v-margin {
+  margin-block: 0.75em;
+}
+.clickable {
+  box-sizing: border-box;
+  border: 0.0625em solid lightgray;
+  border-radius: 0.25em;
+  padding: 0.125em 0.5em;
+  width: max-content;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.editable {
+  box-sizing: border-box;
+  position: absolute;
+  border: 0.0625em solid lightgray;
+  border-radius: 0.25em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+#output {
+  border: 0.0625em solid lightgray;
+  border-radius: 0.25em;
+  min-height: 10em;
+}
