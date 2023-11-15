@@ -56,6 +56,9 @@ button {
   margin: 0;
   padding: 0;
 }
+textarea {
+  resize: none;
+}
 
 button,
 input,
@@ -73,12 +76,12 @@ input,
   display: inline-block;
   cursor: pointer;
   min-width: 3em;
-  text-align: center;
   user-select: none;
+  word-wrap: anywhere;
 }
 .editable {
   position: absolute;
-  text-align: center;
+  word-wrap: anywhere;
 }
 #output {
   border: 0.0625em solid lightgray;
@@ -86,4 +89,8 @@ input,
   overflow-y: scroll;
   padding: 1em;
   min-height: 5em;
+}
+
+input {
+  width: 100%;
 }

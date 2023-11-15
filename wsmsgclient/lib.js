@@ -9,7 +9,7 @@ export function disable(el) {
 
 /**
  * @param {HTMLSpanElement} span
- * @param {HTMLInputElement} input
+ * @param {HTMLInputElement|HTMLTextAreaElement} input
  */
 export function swapSpanInput(span, input) {
   if (input.getAttribute('hidden') !== null) {
@@ -25,14 +25,14 @@ export function swapSpanInput(span, input) {
 }
 /**
  * @param {HTMLSpanElement} span
- * @param {HTMLInputElement} input
+ * @param {HTMLElement} el
  */
-export function resizeSpanInput(span, input) {
+export function resizeSpanInput(span, el) {
   const rect = span.getBoundingClientRect();
-  input.style.left = rect.left + 'px';
-  input.style.top = rect.top + 'px';
-  input.style.width = rect.width + 'px';
-  input.style.height = rect.height + 'px';
+  el.style.left = rect.left + 'px';
+  el.style.top = rect.top + 'px';
+  el.style.width = rect.width + 'px';
+  el.style.height = rect.height + 'px';
 }
 
 /**
@@ -79,6 +79,15 @@ export function $span(str) {
   const el = $id(str);
   if (el instanceof HTMLSpanElement) return el;
   throw `#${str} not HTMLSpanElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLTextAreaElement}
+ */
+export function $text(str) {
+  const el = $id(str);
+  if (el instanceof HTMLTextAreaElement) return el;
+  throw `#${str} not HTMLTextAreaElement.`;
 }
 
 /**

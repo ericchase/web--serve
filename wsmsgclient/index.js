@@ -1,5 +1,5 @@
-import { generateKeyIv, base64ToKeyIv, encrypt, decrypt } from './aes.js';
-import { $button, $div, $input, $span, disable, enable, getClipboard, resizeSpanInput, setClipboard, swapSpanInput } from './lib.js';
+import { base64ToKeyIv, decrypt, encrypt, generateKeyIv } from './aes.js';
+import { $button, $div, $input, $text, disable, enable, resizeSpanInput, setClipboard, swapSpanInput } from './lib.js';
 
 const tls = true;
 const serverHost = tls
@@ -13,12 +13,12 @@ const bNewRoom = $button('new-room');
 const bSend = $button('send');
 const divOutput = $div('output');
 const inMessage = $input('message');
-const bCopyRoomId = $button('copy-room-id');
-const inRoomIdInput = $input('input-room-id');
-const divRoomId = $div('room-id');
 const bCopyB64KeyIv = $button('copy-b64-keyiv');
 const divB64KeyIv = $div('b64-keyiv');
-const inB64KeyIvInput = $input('input-b64-keyiv');
+const taB64KeyIvInput = $text('input-b64-keyiv');
+const bCopyRoomId = $button('copy-room-id');
+const taRoomIdInput = $text('input-room-id');
+const divRoomId = $div('room-id');
 
 for (const button of document.querySelectorAll('button')) {
   disable(button);
@@ -113,14 +113,14 @@ inMessage.addEventListener('keydown', function (evt) {
 });
 
 divRoomId.addEventListener('click', async function () {
-  swapSpanInput(divRoomId, inRoomIdInput);
+  swapSpanInput(divRoomId, taRoomIdInput);
 });
-inRoomIdInput.addEventListener('focusout', function () {
-  swapSpanInput(divRoomId, inRoomIdInput);
+taRoomIdInput.addEventListener('focusout', function () {
+  swapSpanInput(divRoomId, taRoomIdInput);
 });
-inRoomIdInput.addEventListener('input', function () {
-  divRoomId.textContent = inRoomIdInput.value;
-  resizeSpanInput(divRoomId, inRoomIdInput);
+taRoomIdInput.addEventListener('input', function () {
+  divRoomId.textContent = taRoomIdInput.value;
+  resizeSpanInput(divRoomId, taRoomIdInput);
   if (ws) ws.close();
   disable(bDisconnect);
   if (divRoomId.textContent) {
@@ -138,14 +138,14 @@ bCopyRoomId.addEventListener('click', function () {
 });
 
 divB64KeyIv.addEventListener('click', async function () {
-  swapSpanInput(divB64KeyIv, inB64KeyIvInput);
+  swapSpanInput(divB64KeyIv, taB64KeyIvInput);
 });
-inB64KeyIvInput.addEventListener('focusout', function () {
-  swapSpanInput(divB64KeyIv, inB64KeyIvInput);
+taB64KeyIvInput.addEventListener('focusout', function () {
+  swapSpanInput(divB64KeyIv, taB64KeyIvInput);
 });
-inB64KeyIvInput.addEventListener('input', async function () {
-  divB64KeyIv.textContent = inB64KeyIvInput.value;
-  resizeSpanInput(divB64KeyIv, inB64KeyIvInput);
+taB64KeyIvInput.addEventListener('input', async function () {
+  divB64KeyIv.textContent = taB64KeyIvInput.value;
+  resizeSpanInput(divB64KeyIv, taB64KeyIvInput);
   if (divB64KeyIv.textContent) {
     [key, iv] = await base64ToKeyIv(divB64KeyIv.textContent);
     enable(bCopyB64KeyIv);
@@ -157,6 +157,11 @@ bCopyB64KeyIv.addEventListener('click', function () {
   if (divB64KeyIv.textContent) {
     setClipboard(divB64KeyIv.textContent);
   }
+});
+
+window.addEventListener('resize', function () {
+  resizeSpanInput(divB64KeyIv, taB64KeyIvInput);
+  resizeSpanInput(divRoomId, taRoomIdInput);
 });
 
 // Helper Functions
