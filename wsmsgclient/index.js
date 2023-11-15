@@ -15,9 +15,9 @@ const divOutput = $div('output');
 const inMessage = $input('message');
 const bCopyRoomId = $button('copy-room-id');
 const inRoomIdInput = $input('input-room-id');
-const sRoomId = $span('room-id');
+const divRoomId = $div('room-id');
 const bCopyB64KeyIv = $button('copy-b64-keyiv');
-const sB64KeyIv = $span('b64-keyiv');
+const divB64KeyIv = $div('b64-keyiv');
 const inB64KeyIvInput = $input('input-b64-keyiv');
 
 for (const button of document.querySelectorAll('button')) {
@@ -40,7 +40,7 @@ bNewRoom.addEventListener('click', async function () {
     : await fetch('http://' + serverHost + '/create');
 
   if (res.status === 200) {
-    sRoomId.textContent = await res.text();
+    divRoomId.textContent = await res.text();
     enable(bConnect);
     enable(bCopyRoomId);
   }
@@ -48,7 +48,7 @@ bNewRoom.addEventListener('click', async function () {
 
 bGenerateKeyIv.addEventListener('click', async function () {
   [key, iv, b64keyiv] = await generateKeyIv();
-  sB64KeyIv.textContent = b64keyiv;
+  divB64KeyIv.textContent = b64keyiv;
   enable(bCopyB64KeyIv);
 });
 
@@ -56,10 +56,11 @@ bConnect.addEventListener('click', async function () {
   if (ws === null) {
     try {
       ws = tls //
-        ? new WebSocket('wss://' + serverHost + '/' + sRoomId.textContent)
-        : new WebSocket('ws://' + serverHost + '/' + sRoomId.textContent);
+        ? new WebSocket('wss://' + serverHost + '/' + divRoomId.textContent)
+        : new WebSocket('ws://' + serverHost + '/' + divRoomId.textContent);
 
       ws.onopen = function () {
+        out('::CONNECTED::');
         disable(bConnect);
         enable(bDisconnect);
         enable(bSend);
@@ -79,7 +80,6 @@ bConnect.addEventListener('click', async function () {
         }
       };
       ws.onerror = function (evt) {
-        out('::ERROR::');
         console.log('::ERROR::', evt);
       };
     } catch (err) {
@@ -112,18 +112,18 @@ inMessage.addEventListener('keydown', function (evt) {
   }
 });
 
-sRoomId.addEventListener('click', async function () {
-  swapSpanInput(sRoomId, inRoomIdInput);
+divRoomId.addEventListener('click', async function () {
+  swapSpanInput(divRoomId, inRoomIdInput);
 });
 inRoomIdInput.addEventListener('focusout', function () {
-  swapSpanInput(sRoomId, inRoomIdInput);
+  swapSpanInput(divRoomId, inRoomIdInput);
 });
 inRoomIdInput.addEventListener('input', function () {
-  sRoomId.textContent = inRoomIdInput.value;
-  resizeSpanInput(sRoomId, inRoomIdInput);
+  divRoomId.textContent = inRoomIdInput.value;
+  resizeSpanInput(divRoomId, inRoomIdInput);
   if (ws) ws.close();
   disable(bDisconnect);
-  if (sRoomId.textContent) {
+  if (divRoomId.textContent) {
     enable(bConnect);
     enable(bCopyRoomId);
   } else {
@@ -132,30 +132,30 @@ inRoomIdInput.addEventListener('input', function () {
   }
 });
 bCopyRoomId.addEventListener('click', function () {
-  if (sRoomId.textContent) {
-    setClipboard(sRoomId.textContent);
+  if (divRoomId.textContent) {
+    setClipboard(divRoomId.textContent);
   }
 });
 
-sB64KeyIv.addEventListener('click', async function () {
-  swapSpanInput(sB64KeyIv, inB64KeyIvInput);
+divB64KeyIv.addEventListener('click', async function () {
+  swapSpanInput(divB64KeyIv, inB64KeyIvInput);
 });
 inB64KeyIvInput.addEventListener('focusout', function () {
-  swapSpanInput(sB64KeyIv, inB64KeyIvInput);
+  swapSpanInput(divB64KeyIv, inB64KeyIvInput);
 });
 inB64KeyIvInput.addEventListener('input', async function () {
-  sB64KeyIv.textContent = inB64KeyIvInput.value;
-  resizeSpanInput(sB64KeyIv, inB64KeyIvInput);
-  if (sB64KeyIv.textContent) {
-    [key, iv] = await base64ToKeyIv(sB64KeyIv.textContent);
+  divB64KeyIv.textContent = inB64KeyIvInput.value;
+  resizeSpanInput(divB64KeyIv, inB64KeyIvInput);
+  if (divB64KeyIv.textContent) {
+    [key, iv] = await base64ToKeyIv(divB64KeyIv.textContent);
     enable(bCopyB64KeyIv);
   } else {
     disable(bCopyB64KeyIv);
   }
 });
 bCopyB64KeyIv.addEventListener('click', function () {
-  if (sB64KeyIv.textContent) {
-    setClipboard(sB64KeyIv.textContent);
+  if (divB64KeyIv.textContent) {
+    setClipboard(divB64KeyIv.textContent);
   }
 });
 
