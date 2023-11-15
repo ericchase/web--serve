@@ -173,6 +173,7 @@ async function send() {
     } else {
       ws.send(inMessage.value);
     }
+    out('(me)', inMessage.value);
     inMessage.value = '';
     unsetMessage = '';
   }
@@ -201,7 +202,7 @@ function showMessageHistoryDown() {
  */
 function out(...message) {
   const d = document.createElement('div');
-  d.textContent = message;
+  d.textContent = message.join(' ');
   divOutput.appendChild(d);
   divOutput.scroll(0, divOutput.scrollHeight);
 }

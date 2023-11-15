@@ -6,29 +6,33 @@
     <script src="./index.js" type="module" defer></script>
   </head>
   <body>
-    <p>Request a new room.</p>
-    <button type="button" id="new-room">New Room</button>
-    <div class="v-margin">
-      Room Id:&nbsp;<span class="clickable" id="room-id"></span>&nbsp;<input class="editable" id="input-room-id" type="text" hidden /><button
-        id="copy-room-id"
-      >
-        Copy
-      </button>
+    <div class="col pad">
+      <div>Request a new room.</div>
+      <button type="button" id="new-room">New Room</button>
+      <div>
+        Room Id:&nbsp;<span class="clickable" id="room-id"></span>&nbsp;<input class="editable" id="input-room-id" type="text" hidden /><button
+          id="copy-room-id"
+        >
+          Copy
+        </button>
+      </div>
+      <button type="button" id="generate-keyiv">Generate KeyIv</button>
+      <div>
+        KeyIv:&nbsp;<span class="clickable" id="b64-keyiv"></span>&nbsp;<input class="editable" id="input-b64-keyiv" type="text" hidden /><button
+          id="copy-b64-keyiv"
+        >
+          Copy
+        </button>
+      </div>
+      <div>
+        <button type="button" id="connect">Connect</button>
+        <button type="button" id="disconnect">Disconnect</button>
+      </div>
+      <div>
+        <input id="message" type="text" value="Hello world!" />
+        <button type="button" id="send">Send</button>
+      </div>
+      <div id="output"></div>
     </div>
-    <button type="button" id="generate-keyiv">Generate KeyIv</button>
-    <div class="v-margin">
-      KeyIv:&nbsp;<span class="clickable" id="b64-keyiv"></span>&nbsp;<input class="editable" id="input-b64-keyiv" type="text" hidden /><button
-        id="copy-b64-keyiv"
-      >
-        Copy
-      </button>
-    </div>
-    <button type="button" id="connect">Connect</button>
-    <button type="button" id="disconnect">Disconnect</button>
-    <p>
-      <input id="message" type="text" value="Hello world!" />
-      <button type="button" id="send">Send</button>
-    </p>
-    <div id="output" style="max-height: 70vh; overflow-y: scroll"></div>
   </body>
 </html>

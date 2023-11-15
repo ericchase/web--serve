@@ -1,9 +1,21 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 :root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.85em;
 }
-.v-margin {
-  margin-block: 0.75em;
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  align-items: flex-start;
+}
+.pad {
+  padding: 1em;
 }
 .clickable {
   box-sizing: border-box;
@@ -27,5 +39,5 @@
 #output {
   border: 0.0625em solid lightgray;
   border-radius: 0.25em;
-  min-height: 10em;
+  max-height: 50em;
 }
