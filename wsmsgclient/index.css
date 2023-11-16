@@ -47,6 +47,9 @@ body {
 .of-auto-y {
   overflow-y: auto;
 }
+.max-vh {
+  max-height: calc(100vh - 2em);
+}
 
 /* custom border */
 button,
