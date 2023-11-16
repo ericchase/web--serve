@@ -48,9 +48,8 @@ body {
   overflow-y: auto;
 }
 .max-vh {
-  max-height: -moz-available;
-  max-height: -webkit-fill-available;
-  max-height: fill-available;
+  max-height: 80vh;
+  max-height: 80dvh;
 }
 
 /* custom border */
