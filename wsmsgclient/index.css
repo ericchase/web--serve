@@ -48,7 +48,7 @@ body {
   overflow-y: auto;
 }
 .max-vh {
-  max-height: calc(100vh - 2em);
+  max-height: calc(80vh);
 }
 
 /* custom border */
