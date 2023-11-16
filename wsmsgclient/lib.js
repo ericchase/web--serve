@@ -8,12 +8,13 @@ export function disable(el) {
 }
 
 /**
+ * @param {HTMLDivElement} div
  * @param {HTMLSpanElement} span
  * @param {HTMLInputElement|HTMLTextAreaElement} input
  */
-export function swapSpanInput(span, input) {
+export function swapInnerSpanInput(div, span, input) {
   if (input.getAttribute('hidden') !== null) {
-    resizeSpanInput(span, input);
+    resizeSpanInput(div, input);
     input.value = span.textContent ?? '';
     input.removeAttribute('hidden');
     input.focus();
@@ -24,11 +25,11 @@ export function swapSpanInput(span, input) {
   }
 }
 /**
- * @param {HTMLSpanElement} span
+ * @param {HTMLDivElement} div
  * @param {HTMLElement} el
  */
-export function resizeSpanInput(span, el) {
-  const rect = span.getBoundingClientRect();
+export function resizeSpanInput(div, el) {
+  const rect = div.getBoundingClientRect();
   el.style.left = rect.left + 'px';
   el.style.top = rect.top + 'px';
   el.style.width = rect.width + 'px';
@@ -64,6 +65,15 @@ export function $div(str) {
 }
 /**
  * @param {string} str
+ * @returns {HTMLDivElement}
+ */
+export function _div(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLDivElement) return el;
+  throw `${str} not HTMLDivElement.`;
+}
+/**
+ * @param {string} str
  * @returns {HTMLInputElement}
  */
 export function $input(str) {
@@ -79,6 +89,15 @@ export function $span(str) {
   const el = $id(str);
   if (el instanceof HTMLSpanElement) return el;
   throw `#${str} not HTMLSpanElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLSpanElement}
+ */
+export function _span(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLSpanElement) return el;
+  throw `${str} not HTMLSpanElement.`;
 }
 /**
  * @param {string} str

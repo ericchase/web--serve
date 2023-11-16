@@ -1,33 +1,30 @@
-*,
-:root {
+* {
   box-sizing: border-box;
-  font-family: Arial;
-  font-size: 1rem;
   margin: 0;
-  padding: 0;
+  font-family: Arial;
+  font-size: 14px;
 }
 html,
 body {
-  width: 100%;
+  max-height: 100vh;
   max-width: 960px;
-  height: 100%;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
   padding: 1em;
 }
 .col {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  align-items: flex-start;
+  gap: 0.5em;
+  min-height: auto;
+  min-width: auto;
 }
 .row {
   display: flex;
-  flex-direction: row;
-  gap: 1em;
+  gap: 0.5em;
+  min-height: auto;
+  min-width: auto;
 }
 .items-start {
   align-items: flex-start;
@@ -38,10 +35,8 @@ body {
 .fill-w {
   width: 100%;
 }
-.group {
-  border: 0.0625em solid gray;
-  border-radius: 0.25em;
-  padding: 0.5em 0.5em;
+.fill-h {
+  height: 100%;
 }
 .grow {
   flex-grow: 1;
@@ -49,49 +44,67 @@ body {
 .wrap {
   flex-wrap: wrap;
 }
-button {
-  width: auto;
-  min-height: inherit;
-  height: inherit;
-  max-height: inherit;
-  margin: 0;
-  padding: 0;
-}
-textarea {
-  resize: none;
+.scroll-y {
+  overflow-y: scroll;
 }
 
+/* custom border */
 button,
 input,
-.clickable,
-.editable {
+.editable,
+.editable-overlay,
+.group,
+#output {
   border: 0.0625em solid gray;
-  border-radius: 0.25em;
-  margin: 0;
-  padding: 0.125em 0.5em;
-  transform-origin: 0px 0px;
-  outline: none;
+  border-radius: 0.5em;
 }
 
-.clickable {
-  display: inline-block;
-  cursor: pointer;
-  min-width: 3em;
-  user-select: none;
-  word-wrap: anywhere;
+.group {
+  padding: 1em 1em;
 }
 .editable {
-  position: absolute;
+  min-height: 1em;
+  min-width: 4em;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
   word-wrap: anywhere;
 }
+.editable-overlay {
+  position: absolute;
+}
+
+.editable > span:not(.text) {
+  display: inline-block;
+  width: 0;
+  visibility: collapse;
+}
+
+#message {
+  width: 6em;
+  flex-grow: 1;
+}
 #output {
-  border: 0.0625em solid lightgray;
-  border-radius: 0.25em;
   overflow-y: scroll;
   padding: 1em;
   min-height: 5em;
 }
 
-input {
-  width: 100%;
+button {
+  cursor: pointer;
+}
+button[disabled] {
+  cursor: initial;
+}
+textarea {
+  resize: none;
+  word-wrap: anywhere;
+}
+
+/* universal padding */
+.editable,
+.editable-overlay,
+#message,
+button {
+  padding: 0.125em 0.5em;
 }

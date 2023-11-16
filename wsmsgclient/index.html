@@ -6,39 +6,35 @@
     <link rel="stylesheet" href="./index.css" />
     <script src="./index.js" type="module" defer></script>
   </head>
-  <body>
-    <div class="col group fill-w">
-      <div class="row">
+  <body class="col">
+    <div class="col group scroll-y">
+      <div class="row wrap">
         <button type="button" id="connect">Connect</button>
         <button type="button" id="disconnect">Disconnect</button>
       </div>
-      <div class="row fill-w">
+      <div class="row wrap">
         <button type="button" id="send">Send</button>
         <input id="message" type="text" value="Hello world!" />
       </div>
-      <div class="fill-w" id="output"></div>
+      <div class="" id="output"></div>
     </div>
-    <div class="row">
-      <div class="col group">
-        <div>Request a new room, first.</div>
-        <div>Room ID</div>
-        <button type="button" id="new-room">New Room</button>
-        <div class="row">
-          <button id="copy-room-id">Copy</button>
-          <div class="clickable" id="room-id"><span></span></div>
-          <textarea class="editable" id="input-room-id" type="text" hidden></textarea>
-        </div>
+    <div class="col group">
+      <div>Request a new room, first.</div>
+      <div>Room ID</div>
+      <div class="row"><button type="button" id="new-room">New Room</button></div>
+      <div class="row wrap">
+        <button id="copy-room-id">Copy</button>
+        <div class="editable" id="room-id"><span class="text"></span><span>.</span></div>
+        <textarea class="editable-overlay" id="input-room-id" type="text" hidden></textarea>
       </div>
     </div>
-    <div class="row">
-      <div class="col group">
-        <div>Generate an Encryption Key, if needed.</div>
-        <button type="button" id="generate-keyiv">Generate Key</button>
-        <div class="row">
-          <button id="copy-b64-keyiv">Copy</button>
-          <div class="clickable" id="b64-keyiv"></div>
-          <textarea class="editable" id="input-b64-keyiv" type="text" hidden></textarea>
-        </div>
+    <div class="col group">
+      <div>Generate an Encryption Key, if needed.</div>
+      <div class="row"><button type="button" id="generate-keyiv">Generate Key</button></div>
+      <div class="row wrap">
+        <button id="copy-b64-keyiv">Copy</button>
+        <div class="editable" id="b64-keyiv"><span class="text"></span><span>.</span></div>
+        <textarea class="editable-overlay" id="input-b64-keyiv" type="text" hidden></textarea>
       </div>
     </div>
   </body>
