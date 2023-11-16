@@ -44,8 +44,8 @@ body {
 .wrap {
   flex-wrap: wrap;
 }
-.scroll-y {
-  overflow-y: scroll;
+.of-auto-y {
+  overflow-y: auto;
 }
 
 /* custom border */
@@ -85,7 +85,6 @@ input,
   flex-grow: 1;
 }
 #output {
-  overflow-y: scroll;
   padding: 1em;
   min-height: 5em;
 }
