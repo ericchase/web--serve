@@ -1,0 +1,22 @@
+.col {
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  min-width: auto;
+}
+.row {
+  display: flex;
+  min-height: auto;
+  min-width: auto;
+}
+.space {
+  min-height: 1em;
+  min-width: 1em;
+}
+
+.fill-h {
+  height: 100%;
+}
+.fill-w {
+  width: 100%;
+}

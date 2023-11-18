@@ -37,79 +37,6 @@ export function resizeSpanInput(div, el) {
 }
 
 /**
- * @param {string} str
- * @returns {HTMLElement}
- */
-export function $id(str) {
-  const el = document.getElementById(str);
-  if (el) return el;
-  throw `#${str} does not exist.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLButtonElement}
- */
-export function $button(str) {
-  const el = $id(str);
-  if (el instanceof HTMLButtonElement) return el;
-  throw `#${str} not HTMLButtonElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLDivElement}
- */
-export function $div(str) {
-  const el = $id(str);
-  if (el instanceof HTMLDivElement) return el;
-  throw `#${str} not HTMLDivElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLDivElement}
- */
-export function _div(str) {
-  const el = document.querySelector(str);
-  if (el instanceof HTMLDivElement) return el;
-  throw `${str} not HTMLDivElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLInputElement}
- */
-export function $input(str) {
-  const el = $id(str);
-  if (el instanceof HTMLInputElement) return el;
-  throw `#${str} not HTMLInputElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLSpanElement}
- */
-export function $span(str) {
-  const el = $id(str);
-  if (el instanceof HTMLSpanElement) return el;
-  throw `#${str} not HTMLSpanElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLSpanElement}
- */
-export function _span(str) {
-  const el = document.querySelector(str);
-  if (el instanceof HTMLSpanElement) return el;
-  throw `${str} not HTMLSpanElement.`;
-}
-/**
- * @param {string} str
- * @returns {HTMLTextAreaElement}
- */
-export function $text(str) {
-  const el = $id(str);
-  if (el instanceof HTMLTextAreaElement) return el;
-  throw `#${str} not HTMLTextAreaElement.`;
-}
-
-/**
  * @param {string} data
  * @return {Promise<boolean>}
  */
@@ -133,4 +60,52 @@ export async function getClipboard() {
     } catch (ignore) {}
   }
   return '';
+}
+
+//
+
+/**
+ * @param {string} str
+ * @returns {HTMLButtonElement}
+ */
+export function $button(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLButtonElement) return el;
+  throw `${str} not HTMLButtonElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLDivElement}
+ */
+export function $div(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLDivElement) return el;
+  throw `${str} not HTMLDivElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLInputElement}
+ */
+export function $input(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLInputElement) return el;
+  throw `${str} not HTMLInputElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLSpanElement}
+ */
+export function $span(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLSpanElement) return el;
+  throw `${str} not HTMLSpanElement.`;
+}
+/**
+ * @param {string} str
+ * @returns {HTMLTextAreaElement}
+ */
+export function $textarea(str) {
+  const el = document.querySelector(str);
+  if (el instanceof HTMLTextAreaElement) return el;
+  throw `${str} not HTMLTextAreaElement.`;
 }

@@ -9,22 +9,19 @@ body {
   max-height: 100vh;
   max-width: 960px;
 }
-body {
-  gap: 0.5em;
-  padding: 1em;
-}
 .col {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
   min-height: auto;
   min-width: auto;
 }
 .row {
   display: flex;
-  gap: 0.5em;
   min-height: auto;
   min-width: auto;
+}
+.gap {
+  gap: 0.5em;
 }
 .items-start {
   align-items: flex-start;
@@ -44,12 +41,23 @@ body {
 .wrap {
   flex-wrap: wrap;
 }
-.of-auto-y {
+.overflow-y {
   overflow-y: auto;
 }
 .max-vh {
   max-height: 80vh;
   max-height: 80dvh;
+}
+.wrapper {
+  height: 100vh;
+}
+.space {
+  min-height: 1em;
+  min-width: 1em;
+}
+.half-space {
+  min-height: 0.5em;
+  min-width: 0.5em;
 }
 
 /* custom border */
@@ -63,9 +71,6 @@ input,
   border-radius: 0.5em;
 }
 
-.group {
-  padding: 1em 1em;
-}
 .editable {
   min-height: 1em;
   min-width: 4em;
@@ -89,12 +94,14 @@ input,
   flex-grow: 1;
 }
 #output {
-  padding: 1em;
   min-height: 5em;
+  overflow-y: auto;
+  padding: 1em;
 }
 
 button {
   cursor: pointer;
+  min-width: max-content;
 }
 button[disabled] {
   cursor: initial;

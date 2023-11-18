@@ -1,26 +1,29 @@
 import { base64ToKeyIv, decrypt, encrypt, generateKeyIv } from './aes.js';
-import { $button, $div, $input, $text, _span, disable, enable, resizeSpanInput, setClipboard, swapInnerSpanInput } from './lib.js';
+import { $button, $div, $input, $span, $textarea, disable, enable, resizeSpanInput, setClipboard, swapInnerSpanInput } from './lib.js';
+
+import { Padding } from './component-padding.js';
+customElements.define('wc-padding', Padding);
 
 const tls = true;
 const serverHost = tls
   ? 'divine-snow-2261.fly.dev' // remote server
   : '127.0.0.1:8778'; // local
 
-const bConnect = $button('connect');
-const bDisconnect = $button('disconnect');
-const bGenerateKeyIv = $button('generate-keyiv');
-const bNewRoom = $button('new-room');
-const bSend = $button('send');
-const divOutput = $div('output');
-const inMessage = $input('message');
-const bCopyB64KeyIv = $button('copy-b64-keyiv');
-const divB64KeyIv = $div('b64-keyiv');
-const spanB64KeyIvText = _span('#b64-keyiv>span.text');
-const taB64KeyIvInput = $text('input-b64-keyiv');
-const bCopyRoomId = $button('copy-room-id');
-const taRoomIdInput = $text('input-room-id');
-const divRoomId = $div('room-id');
-const spanRoomIdText = _span('#room-id>span.text');
+const bConnect = $button('#connect');
+const bDisconnect = $button('#disconnect');
+const bGenerateKeyIv = $button('#generate-keyiv');
+const bNewRoom = $button('#new-room');
+const bSend = $button('#send');
+const divOutput = $div('#output');
+const inMessage = $input('#message');
+const bCopyB64KeyIv = $button('#copy-b64-keyiv');
+const divB64KeyIv = $div('#b64-keyiv');
+const spanB64KeyIvText = $span('#b64-keyiv>span.text');
+const taB64KeyIvInput = $textarea('#input-b64-keyiv');
+const bCopyRoomId = $button('#copy-room-id');
+const taRoomIdInput = $textarea('#input-room-id');
+const divRoomId = $div('#room-id');
+const spanRoomIdText = $span('#room-id>span.text');
 
 for (const button of document.querySelectorAll('button')) {
   disable(button);
@@ -210,6 +213,5 @@ function showMessageHistoryDown() {
 function out(...message) {
   const d = document.createElement('div');
   d.textContent = message.join(' ');
-  divOutput.appendChild(d);
-  divOutput.scroll(0, divOutput.scrollHeight);
+  divOutput.prepend(d);
 }
