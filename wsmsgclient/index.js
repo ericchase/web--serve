@@ -1,9 +1,6 @@
 import { base64ToKeyIv, decrypt, encrypt, generateKeyIv } from './aes.js';
 import { $button, $div, $input, $span, $textarea, disable, enable, resizeSpanInput, setClipboard, swapInnerSpanInput } from './lib.js';
 
-import { Padding } from './component-padding.js';
-customElements.define('wc-padding', Padding);
-
 const tls = true;
 const serverHost = tls
   ? 'divine-snow-2261.fly.dev' // remote server

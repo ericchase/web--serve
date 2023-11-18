@@ -1,4 +1,4 @@
-export class Padding extends HTMLElement {
+class ComponentPadding extends HTMLElement {
   static observedAttributes = ['fill-h', 'fill-w'];
 
   constructor() {
@@ -42,3 +42,5 @@ function add(element, className) {
 function remove(element, className) {
   element?.classList.remove(className);
 }
+
+customElements.define('wc-padding', ComponentPadding);
