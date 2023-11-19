@@ -9,7 +9,7 @@ document.body.appendChild(app.view);
 // Create the sprite and add it to the stage
 for (let i = 0; i < 100000; ++i) {
   let sprite = PIXI.Sprite.from('./4d5bbuxo.bmp');
-  sprite.y = Math.floor((i * 32) / height) * 32;
+  sprite.y = Math.floor((Math.floor((i * 32) / width) * 32) % height);
   sprite.x = Math.floor((i * 32) % width);
   app.stage.addChild(sprite);
 }
