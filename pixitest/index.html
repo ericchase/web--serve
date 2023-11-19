@@ -12,25 +12,28 @@
       }
       #root {
         position: relative;
+        overflow: hidden;
       }
     </style>
   </head>
   <body>
     <div id="root"></div>
     <script>
-      const root = document.querySelector('#root');
+      const height = Math.floor(window.innerHeight / 32) * 32;
+      const width = Math.floor(window.innerWidth / 32) * 32;
 
-      root.style.height = window.screen.height;
-      root.style.width = window.screen.width;
+      const root = document.querySelector('#root');
+      root.style.height = height + 'px';
+      root.style.width = width + 'px';
 
       for (let i = 0; i < 100000; ++i) {
         const img = document.createElement('img');
         img.src = './4d5bbuxo.bmp';
-        img.style.width = '32px';
         img.style.height = '32px';
+        img.style.width = '32px';
         img.style.position = 'absolute';
-        img.style.left = Math.floor((i * 32) % 896) + 'px';
-        img.style.top = Math.floor((i * 32) / 896) * 32 + 'px';
+        img.style.top = Math.floor((i * 32) / height) * 32 + 'px';
+        img.style.left = Math.floor((i * 32) % width) + 'px';
         root.append(img);
       }
     </script>
