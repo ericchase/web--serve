@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      #root {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.querySelector('#root');
+
+      root.style.height = window.screen.height;
+      root.style.width = window.screen.width;
+
+      for (let i = 0; i < 100000; ++i) {
+        const img = document.createElement('img');
+        img.src = './4d5bbuxo.bmp';
+        img.style.width = '32px';
+        img.style.height = '32px';
+        img.style.position = 'absolute';
+        img.style.left = Math.floor((i * 32) % 896) + 'px';
+        img.style.top = Math.floor((i * 32) / 896) * 32 + 'px';
+        root.append(img);
+      }
+    </script>
+  </body>
+</html>
